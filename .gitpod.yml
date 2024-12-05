@@ -1,0 +1,11 @@
+tasks:
+  - init: |
+      curl -sSfL https://release.solana.com/stable/install | sh
+      curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+      export PATH="$PATH:$HOME/.local/share/solana/install/active_release/bin"
+      source $HOME/.cargo/env
+      rustup default stable
+  command: bash
+ports:
+  - port: 8899
+    onOpen: open-preview
